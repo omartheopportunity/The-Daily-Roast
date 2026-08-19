@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Daily Roast — Better Mornings, Better Rooms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --roast:      #1C120B;
+    --ink:        #2A1D14;
+    --parchment:  #F1E6D2;
+    --cream:      #FAF3E4;
+    --brass:      #B98B4E;
+    --brass-dim:  #8C6A3B;
+    --ember:      #9A3B22;
+    --ember-lt:   #B85336;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(185,139,78,0.10), transparent 40%),
+      radial-gradient(circle at 85% 90%, rgba(154,59,34,0.08), transparent 45%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--brass-dim);
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    color:var(--roast);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  a{ color:inherit; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:relative; z-index:2;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:28px clamp(20px,5vw,64px);
+  }
+  .wordmark{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.15rem;
+    letter-spacing:0.02em;
+  }
+  .wordmark span{ color:var(--ember); font-style:italic; font-weight:500; }
+  .nav-cta{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    text-decoration:none;
+    border:1px solid var(--roast);
+    padding:9px 16px;
+    border-radius:2px;
+    transition:background .2s ease, color .2s ease;
+  }
+  .nav-cta:hover{ background:var(--roast); color:var(--cream); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; z-index:1;
+    padding:8vh clamp(20px,6vw,64px) 10vh;
+    display:grid;
+    gap:28px;
+    max-width:900px;
+    margin:0 auto;
+    text-align:center;
+    animation:riseIn 1s ease both;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4.4rem);
+    line-height:1.04;
+    font-weight:500;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:600;
+    color:var(--ember);
+  }
+  .hero p.sub{
+    font-size:1.08rem;
+    line-height:1.6;
+    max-width:560px;
+    margin:0 auto;
+    color:#4a382a;
+  }
+  .steam{
+    width:2px; height:46px;
+    margin:0 auto;
+    background:linear-gradient(to bottom, transparent, var(--brass), transparent);
+    opacity:0.6;
+  }
+
+  @keyframes riseIn{
+    from{ opacity:0; transform:translateY(14px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  /* ---------- RITUAL / STORY ---------- */
+  .ritual{
+    position:relative; z-index:1;
+    max-width:760px;
+    margin:0 auto;
+    padding:6vh clamp(20px,6vw,64px);
+    text-align:center;
+  }
+  .ritual p{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(1.2rem, 2.6vw, 1.55rem);
+    line-height:1.55;
+    color:var(--roast);
+  }
+  .ritual p .plain{
+    font-style:normal;
+    font-weight:400;
+    color:#5b4630;
+    font-family:'Work Sans', sans-serif;
+    font-size:0.65em;
+    display:block;
+    margin-top:14px;
+    letter-spacing:0.02em;
+  }
+  .rule{
+    width:64px; height:2px;
+    background:var(--brass);
+    margin:36px auto 0;
+  }
+
+  /* ---------- THE TICKET (signature element) ---------- */
+  .offer-wrap{
+    position:relative; z-index:1;
+    padding:6vh clamp(20px,6vw,64px) 10vh;
+    display:flex; justify-content:center;
+  }
+  .ticket{
+    position:relative;
+    width:100%;
+    max-width:520px;
+    background:var(--cream);
+    border:1px solid rgba(28,18,11,0.14);
+    border-radius:4px;
+    box-shadow:0 24px 60px -20px rgba(28,18,11,0.35);
+    overflow:hidden;
+  }
+  .ticket::before, .ticket::after{
+    content:"";
+    position:absolute;
+    width:26px; height:26px;
+    background:var(--parchment);
+    border-radius:50%;
+    top:50%; transform:translateY(-50%);
+  }
+  .ticket-top{
+    padding:26px 30px 20px;
+    border-bottom:1px dashed rgba(28,18,11,0.25);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .ticket-top .mark{
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    color:var(--brass-dim);
+    text-transform:uppercase;
+  }
+  .ticket-top .num{
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    color:var(--brass-dim);
+  }
+  .ticket-body{
+    padding:30px 30px 8px;
+  }
+  .ticket-body h2{
+    font-size:1.7rem;
+    font-weight:600;
+    line-height:1.2;
+  }
+  .ticket-body h2 em{ font-style:italic; color:var(--ember); font-weight:600; }
+  .notes{
+    margin-top:20px;
+    display:grid;
+    gap:10px;
+  }
+  .notes .row{
+    display:flex; justify-content:space-between;
+    font-size:0.86rem;
+    padding-bottom:10px;
+    border-bottom:1px solid rgba(28,18,11,0.08);
+  }
+  .notes .row .k{
+    font-family:'Space Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-size:0.68rem;
+    color:var(--brass-dim);
+    padding-top:2px;
+  }
+  .notes .row .v{
+    text-align:right;
+    color:var(--ink);
+    max-width:62%;
+  }
+  .notes .row .v.free{ color:var(--ember); font-weight:600; }
+
+  .ticket-form{
+    padding:22px 30px 30px;
+  }
+  .ticket-form label{
+    display:block;
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--brass-dim);
+    margin-bottom:8px;
+  }
+  .ticket-form input[type="email"]{
+    width:100%;
+    padding:13px 14px;
+    font-family:'Work Sans', sans-serif;
+    font-size:0.95rem;
+    border:1px solid rgba(28,18,11,0.25);
+    border-radius:3px;
+    background:var(--parchment);
+    color:var(--ink);
+    outline:none;
+    transition:border-color .2s ease;
+  }
+  .ticket-form input[type="email"]:focus{
+    border-color:var(--ember);
+  }
+  .ticket-form .err{
+    font-size:0.78rem;
+    color:var(--ember);
+    margin-top:6px;
+    min-height:1em;
+    font-family:'Space Mono', monospace;
+  }
+  .cta-btn{
+    width:100%;
+    margin-top:14px;
+    padding:16px 20px;
+    background:var(--roast);
+    color:var(--cream);
+    border:none;
+    border-radius:3px;
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+    font-size:0.98rem;
+    letter-spacing:0.01em;
+    cursor:pointer;
+    transition:background .2s ease, transform .15s ease;
+  }
+  .cta-btn:hover{ background:var(--ember); }
+  .cta-btn:active{ transform:scale(0.99); }
+  .cta-btn:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
+
+  .fine{
+    text-align:center;
+    font-size:0.74rem;
+    color:#7a6650;
+    margin-top:14px;
+    line-height:1.5;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    position:relative; z-index:1;
+    text-align:center;
+    padding:40px 20px 60px;
+  }
+  footer .rule{ margin-bottom:22px; }
+  footer p{
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--brass-dim);
+  }
+
+  @media (max-width:520px){
+    .ticket-top{ padding:22px 22px 18px; }
+    .ticket-body{ padding:24px 22px 6px; }
+    .ticket-form{ padding:18px 22px 26px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero{ animation:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark">THE DAILY <span>ROAST</span></div>
+  <a class="nav-cta" href="#claim">Get the Roast</a>
+</header>
+
+<section class="hero">
+  <p class="eyebrow">A Cup of Freedom — Roasted Small Batch</p>
+  <h1>Better Rooms Start<br>With A <em>Better Morning.</em></h1>
+  <p class="sub">Every environment you're in was chosen by somebody — including the one you wake up into. This is the first ten minutes of your day, done on purpose.</p>
+  <div class="steam"></div>
+</section>
+
+<section class="ritual">
+  <p>
+    Coffee was never really about the coffee.
+    <span class="plain">It's the pause before the noise starts. The one room in your day nobody else is allowed in.</span>
+  </p>
+  <div class="rule"></div>
+</section>
+
+<section class="offer-wrap" id="claim">
+  <div class="ticket">
+    <div class="ticket-top">
+      <span class="mark">Roast Ticket</span>
+      <span class="num">No. 001 — Fishers, IN</span>
+    </div>
+
+    <div class="ticket-body">
+      <h2>Buy the bag.<br><em>Get the room free.</em></h2>
+
+      <div class="notes">
+        <div class="row">
+          <span class="k">Roast</span>
+          <span class="v">Small-batch, medium-dark</span>
+        </div>
+        <div class="row">
+          <span class="k">Notes</span>
+          <span class="v">Clarity, ambition, community</span>
+        </div>
+        <div class="row">
+          <span class="k">Includes</span>
+          <span class="v free">Free entry — The Daily Roast Room</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="ticket-form" id="roastForm" novalidate>
+      <label for="email">Enter your email to claim your bag</label>
+      <input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" required>
+      <div class="err" id="formErr"></div>
+      <button type="submit" class="cta-btn">Claim My Roast + Free Room Access</button>
+      <p class="fine">One bag. One login. No extra charge for the room — it's yours the moment you order.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="rule" style="width:64px;height:2px;background:#B98B4E;margin:0 auto;"></div>
+  <p style="margin-top:22px;">The Daily Roast &middot; Building Better Rooms</p>
+</footer>
+
+<script>
+  const form = document.getElementById('roastForm');
+  const err = document.getElementById('formErr');
+  const emailInput = document.getElementById('email');
+  const submitBtn = form.querySelector('.cta-btn');
+  const DESTINATION = "https://customer.risen.live/auth/signup/foster123";
+
+  // Google Form tracking the coffee page's email capture.
+  const GFORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSeEH1eYCZ29NSMr4KAEkAlsoSCB_QHo_DbxuvC_jAMozSG6sg/formResponse";
+  const GFORM_EMAIL_ENTRY = "entry.1045781291";
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const val = emailInput.value.trim();
+    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    if(!valid){
+      err.textContent = "Enter a real email — that's where your room invite lands.";
+      emailInput.focus();
+      return;
+    }
+    err.textContent = "";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    const formData = new URLSearchParams();
+    formData.append(GFORM_EMAIL_ENTRY, val);
+
+    // Google Forms doesn't allow reading the response cross-origin, so this
+    // fires "blind" (no-cors) — the request still lands in your Responses tab.
+    fetch(GFORM_ACTION, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData.toString()
+    }).catch(function(){
+      // Even if this fails client-side (ad blockers, offline, etc.), don't
+      // block the person from reaching checkout.
+    }).finally(function(){
+      window.location.href = DESTINATION + (DESTINATION.includes('?') ? '&' : '?') + 'email=' + encodeURIComponent(val);
+    });
+  });
+</script>
+
+</body>
+</html>
