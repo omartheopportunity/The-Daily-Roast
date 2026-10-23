@@ -1,5 +1,3 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/the-daily-roast.html" }
-  ]
+  "cleanUrls": true
 }

@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paid to Sip — It's Easy. It's Simple. It's Coffee.</title>
+<meta name="description" content="Turn the coffee you already drink from an expense into an asset. Pick your path, watch the walkthrough, and open your account.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<script>
+/* =========================================================
+   EDIT THESE — everything on the page reads from here
+   ========================================================= */
+window.SIP = {
+  signupUrl: "https://portal.risen.live/auth/signup/foster123/0",  // your affiliate / enrollment link
+  walkthroughVideo: "",   // YouTube EMBED url of your signup walkthrough, e.g. https://www.youtube.com/embed/XXXXXXXX
+  // Comp-plan numbers used in the "$100–$500" illustration (from the RISEN comp plan)
+  standardDirect: 25,     // one-time direct commission per Standard ($250) enrollment
+  fastStart: 60           // Fast Start bonus for every 3 personal enrollments in a month
+};
+</script>
+
+<style>
+:root{
+  --espresso:#17100b; --roast:#22180f; --bean:#2e2117; --line:#3d2d20;
+  --cream:#f4ead9; --foam:#fbf6ee; --steam:#a8977f; --brass:#c99a58; --brass-2:#e2bd82;
+  --ember:#e0713a; --ember-2:#f59a62;
+  --radius:18px; --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--espresso);color:var(--cream);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+em{font-style:italic;color:var(--ember-2)}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.08;letter-spacing:-.01em}
+h1{font-size:clamp(2.7rem,7.4vw,5.6rem)}
+h2{font-size:clamp(2rem,4.6vw,3.2rem)}
+h3{font-size:1.45rem}
+p.lead{font-size:clamp(1.05rem,1.8vw,1.22rem);color:#d9cbb6;max-width:660px}
+.eyebrow{color:var(--brass);display:inline-flex;gap:10px;align-items:center}
+.eyebrow:before{content:"";width:28px;height:1px;background:currentColor}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 26px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:1rem;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-ember{background:var(--ember);color:#fff;box-shadow:0 10px 30px -10px rgba(224,113,58,.6)}
+.btn-ember:hover{background:var(--ember-2)}
+.btn-brass{background:var(--brass);color:var(--espresso)}
+.btn-brass:hover{background:var(--brass-2)}
+.btn-ghost{background:transparent;color:var(--cream);border:1px solid var(--line)}
+section{padding:88px 0;position:relative}
+.sec-head{max-width:760px;margin-bottom:40px}
+.sec-head h2{margin:12px 0 14px}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(23,16,11,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(61,45,32,.6)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{font-family:Fraunces,serif;font-weight:800;letter-spacing:.18em;font-size:.95rem;text-decoration:none}
+.logo span{color:var(--brass)}
+nav .back{font-size:.85rem;color:var(--steam);text-decoration:none}
+nav .back:hover{color:var(--cream)}
+
+/* HERO */
+.hero{padding:80px 0 72px;text-align:center;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;left:50%;top:-180px;transform:translateX(-50%);width:900px;max-width:140vw;height:620px;background:radial-gradient(closest-side,rgba(224,113,58,.2),transparent 70%);pointer-events:none}
+.hero h1{margin:20px auto 22px;max-width:980px}
+.hero h1 .l{display:block}
+.hero p.lead{margin:0 auto 34px}
+.hero .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:36px}
+.chips span{padding:8px 14px;border:1px solid var(--line);border-radius:999px;font-size:.85rem;color:var(--steam);background:var(--roast)}
+
+/* PLAN */
+#plan{background:var(--roast);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.flip{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch;margin-bottom:48px}
+.flip .side{border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:10px}
+.flip .exp{background:var(--bean);border:1px solid var(--line)}
+.flip .ast{background:rgba(224,113,58,.09);border:1px solid rgba(224,113,58,.45)}
+.flip .side b{font-family:Fraunces,serif;font-size:1.5rem;font-weight:600}
+.flip .side p{color:#cbbba4;font-size:.95rem}
+.flip .arrow{display:grid;place-items:center;color:var(--ember-2);font-size:2rem}
+@media(max-width:760px){.flip{grid-template-columns:1fr}.flip .arrow{transform:rotate(90deg)}}
+
+.ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:end}
+.rung{border-radius:var(--radius);padding:26px;background:var(--bean);border:1px solid var(--line);display:flex;flex-direction:column;gap:12px;position:relative}
+.rung:nth-child(1){min-height:330px}
+.rung:nth-child(2){min-height:370px}
+.rung:nth-child(3){min-height:410px;border-color:rgba(224,113,58,.55);background:linear-gradient(170deg,rgba(224,113,58,.14),var(--bean) 60%)}
+.rung .goal{font-family:Fraunces,serif;font-size:2.4rem;font-weight:800;color:var(--ember-2);line-height:1}
+.rung .goal small{font-size:1rem;color:var(--steam);font-weight:400}
+.rung h3{font-size:1.2rem}
+.people{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0}
+.people i{width:22px;height:22px;border-radius:50%;background:var(--brass);position:relative;display:block}
+.people i:after{content:"";position:absolute;left:4px;right:4px;bottom:-1px;height:8px;border-radius:8px 8px 0 0;background:var(--roast)}
+.math{font-size:.9rem;color:#cbbba4;border-top:1px dashed var(--line);padding-top:12px;margin-top:auto}
+.math div{display:flex;justify-content:space-between;gap:10px}
+.math .tot{color:var(--foam);font-weight:700;margin-top:6px}
+@media(max-width:860px){.ladder{grid-template-columns:1fr}.rung{min-height:0!important}}
+
+.plus{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.plus div{padding:18px 20px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.18);font-size:.93rem;color:#cbbba4}
+.plus b{display:block;color:var(--foam);margin-bottom:4px}
+@media(max-width:860px){.plus{grid-template-columns:1fr}}
+.note{font-size:.8rem;color:#8b7864;margin-top:18px}
+
+/* TIERS */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.tier{border-radius:22px;padding:30px 26px;background:linear-gradient(170deg,var(--bean),var(--roast));border:1px solid var(--line);display:flex;flex-direction:column;gap:14px;position:relative}
+.tier .who{font-family:Fraunces,serif;font-style:italic;font-size:1.35rem;line-height:1.25;color:var(--foam)}
+.tier .rec{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tier .rec span{font-size:.85rem;color:var(--steam)}
+.tier .rec b{font-family:Fraunces,serif;font-size:2.2rem}
+.tier .pkg{font-weight:700;font-size:1.05rem}
+.tier ul{list-style:none;display:grid;gap:8px;font-size:.93rem;color:#cbbba4}
+.tier li{padding-left:22px;position:relative}
+.tier .ss{display:block;font-size:.8rem;color:var(--steam);font-style:italic;margin-top:3px}
+.tier li:before{content:"✓";position:absolute;left:0;color:var(--brass-2);font-weight:700}
+.tier .btn{margin-top:auto;width:100%}
+.tier.t1{border-top:3px solid var(--brass)}
+.tier.t2{border:1px solid rgba(224,113,58,.6);border-top:3px solid var(--ember);transform:translateY(-10px);box-shadow:0 30px 60px -30px rgba(224,113,58,.45)}
+.tier.t2 li:before{color:var(--ember-2)}
+.tier.t3{background:linear-gradient(170deg,#3a2a1b,var(--roast));border-top:3px solid var(--brass-2)}
+.badge{position:absolute;top:-13px;left:26px;padding:5px 12px;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.t1 .badge{background:var(--brass);color:var(--espresso)}
+.t2 .badge{background:var(--ember);color:#fff}
+.t3 .badge{background:var(--cream);color:var(--espresso)}
+@media(max-width:900px){.tiers{grid-template-columns:1fr}.tier.t2{transform:none}}
+
+/* WALKTHROUGH */
+#walkthrough{background:var(--roast);border-top:1px solid var(--line)}
+.vid{max-width:860px;margin:0 auto;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--bean);position:relative}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;color:var(--steam)}
+.vid .ph .play{width:74px;height:74px;border-radius:50%;border:2px solid var(--ember);display:grid;place-items:center;margin:0 auto 14px;color:var(--ember-2);font-size:1.6rem}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:860px;margin:22px auto 0}
+.steps div{padding:14px 16px;border-radius:12px;background:var(--bean);border:1px solid var(--line);font-size:.88rem;color:#cbbba4}
+.steps b{display:block;color:var(--ember-2);font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.12em}
+@media(max-width:760px){.steps{grid-template-columns:1fr 1fr}}
+.door{text-align:center;margin-top:40px}
+.door .btn{font-size:1.1rem;padding:20px 36px}
+.door p{color:var(--steam);font-size:.88rem;margin-top:12px}
+.door code{font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--brass-2);word-break:break-all}
+
+/* WHO'S BEHIND */
+.stackmap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:44px}
+.stackmap div{padding:22px;border-radius:var(--radius);border:1px solid var(--line);background:var(--bean)}
+.stackmap .mono{color:var(--steam)}
+.stackmap b{display:block;font-family:Fraunces,serif;font-size:1.35rem;margin:6px 0}
+.stackmap p{font-size:.92rem;color:#cbbba4}
+.stackmap .hl{border-color:rgba(201,154,88,.6);background:rgba(201,154,88,.08)}
+@media(max-width:860px){.stackmap{grid-template-columns:1fr}}
+.reels{display:grid;grid-template-columns:1fr 1.6fr;gap:22px;align-items:start}
+.reel{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--bean)}
+.reel .shell{position:relative;width:100%}
+.reel .shell.v{aspect-ratio:9/16;max-height:620px}
+.reel .shell.h{aspect-ratio:16/9}
+.reel iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.reel .cap{padding:12px 16px;font-size:.85rem;color:var(--steam)}
+.reel .cap b{color:var(--foam)}
+@media(max-width:760px){.reels{grid-template-columns:1fr}.reel .shell.v{max-width:340px;margin:0 auto}}
+
+/* FINAL */
+.final{text-align:center;padding:96px 0}
+.final h2{margin:14px auto 26px;max-width:760px}
+footer{border-top:1px solid var(--line);padding:40px 0 60px;color:#8b7864;font-size:.78rem;line-height:1.7}
+footer .wrap{display:grid;gap:12px}
+footer .brand{color:var(--steam);font-size:.85rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="index.html">THE DAILY <span>ROAST</span></a>
+    <a class="back" href="index.html">← Back to the coffee</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow mono">Paid to Sip · A Daily Roast Room</span>
+    <h1><span class="l">It's Easy.</span> <span class="l">It's Simple.</span> <span class="l"><em>It's Coffee.</em></span></h1>
+    <p class="lead">You're already paying for it every morning. Here's the plan to turn that cup from an expense into an asset: what it takes, which path fits you, and how to open your account in about two minutes.</p>
+    <div class="cta-row">
+      <a class="btn btn-ember" href="#plan">Show Me the Plan</a>
+      <a class="btn btn-ghost" href="#paths">Pick My Path</a>
+    </div>
+    <div class="chips">
+      <span>☕ Organic NAD+ coffee: Black &amp; Latte</span>
+      <span>🔁 Customers keep their own accounts</span>
+      <span>💬 3 questions, no pitch</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= THE PLAN ================= -->
+<section id="plan">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow mono">The Standard Plan</span>
+      <h2>What it takes to make <em>$100–$500 a month.</em></h2>
+      <p class="lead">No inventory and no cold pitching. Keep drinking your coffee, ask three questions, and help a few people get started each month.</p>
+    </div>
+
+    <div class="flip reveal">
+      <div class="side exp">
+        <span class="mono" style="color:var(--steam)">Today</span>
+        <b>Coffee is an expense.</b>
+        <p>You buy it, drink it, and it's gone. Next month you pay again, and the month after that.</p>
+      </div>
+      <div class="arrow">→</div>
+      <div class="side ast">
+        <span class="mono" style="color:var(--ember-2)">With the plan</span>
+        <b>Coffee is an asset.</b>
+        <p>Same cup. You share it, people start on their own accounts, and the money that comes back covers your coffee and then some.</p>
+      </div>
+    </div>
+
+    <div class="ladder reveal" id="ladder">
+      <div class="rung" data-people="3">
+        <span class="mono" style="color:var(--steam)">Step 01 · Cover your cup</span>
+        <div class="goal">$100<small>+ /mo</small></div>
+        <h3>3 people start in a month</h3>
+        <div class="people"></div>
+        <div class="math"></div>
+      </div>
+      <div class="rung" data-people="6">
+        <span class="mono" style="color:var(--steam)">Step 02 · Cover a bill</span>
+        <div class="goal">$250<small>+ /mo</small></div>
+        <h3>6 people start in a month</h3>
+        <div class="people"></div>
+        <div class="math"></div>
+      </div>
+      <div class="rung" data-people="9">
+        <span class="mono" style="color:var(--ember-2)">Step 03 · Real side income</span>
+        <div class="goal">$400–500<small>+ /mo</small></div>
+        <h3>9 people start, plus team reorders</h3>
+        <div class="people"></div>
+        <div class="math"></div>
+      </div>
+    </div>
+
+    <div class="plus reveal">
+      <div><b>Stay active</b>Keep your own monthly coffee order going. You're drinking it anyway, and it keeps you qualified to get paid.</div>
+      <div><b>Reorders stack on top</b>When your customers and team reorder, level and team commissions add to the numbers above.</div>
+      <div><b>Same 3 questions</b>"Know anyone who drinks coffee? How do they like it? Ever gotten a check for drinking it?"</div>
+    </div>
+    <p class="note">Illustration uses Standard ($250) enrollments only: one-time direct commission per enrollment plus the Fast Start bonus for every 3 in a month. It is an example, not a promise. Your results depend on your effort, and commissions are paid only under the official compensation plan.</p>
+  </div>
+</section>
+
+<!-- ================= THREE PATHS ================= -->
+<section id="paths">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow mono">Pick Your Path</span>
+      <h2>Which one <em>sounds like you?</em></h2>
+      <p class="lead center">There's no wrong answer. Pick the one that matches where you are right now.</p>
+    </div>
+
+    <div class="tiers">
+      <div class="tier t1 reveal">
+        <span class="badge">The Flip</span>
+        <p class="who">"I just want my coffee to pay for itself."</p>
+        <div class="rec"><div><span>Recommended</span><div class="pkg">Standard Package</div></div><b>$250</b></div>
+        <ul>
+          <li><strong>3 boxes</strong> of Elevate coffee: your cups, plus a few to share</li>
+          <li><strong>5 Super Saver vouchers</strong> so friends can try it at a discount<span class="ss">A Super Saver is like a coupon. Give one to a customer and they get a discount on their coffee.</span></li>
+          <li>Up to <strong>25% off</strong> every reorder</li>
+          <li>Your own account and a seat in The Daily Roast Room</li>
+        </ul>
+        <a class="btn btn-brass signup" href="#">Start With Standard</a>
+      </div>
+
+      <div class="tier t2 reveal">
+        <span class="badge">Most Popular</span>
+        <p class="who">"I'm willing to give it a real try for extra side income."</p>
+        <div class="rec"><div><span>Recommended</span><div class="pkg">Premium Package</div></div><b>$600</b></div>
+        <ul>
+          <li><strong>8 boxes</strong> of Elevate coffee: enough to sip daily and let people taste it</li>
+          <li><strong>15 Super Saver vouchers</strong> to hand out to the coffee drinkers you know<span class="ss">A Super Saver is like a coupon. Give one to a customer and they get a discount on their coffee.</span></li>
+          <li>Up to <strong>30% off</strong> every reorder</li>
+          <li><strong>1 month of Sips &amp; Pips</strong>: live morning sessions over coffee</li>
+        </ul>
+        <a class="btn btn-ember signup" href="#">Go Premium</a>
+      </div>
+
+      <div class="tier t3 reveal">
+        <span class="badge">Limited Edition</span>
+        <p class="who">"I see the vision. I want in at the ground floor."</p>
+        <div class="rec"><div><span>Recommended</span><div class="pkg">Founder Package</div></div><b>$1,750</b></div>
+        <ul>
+          <li><strong>22 boxes</strong> of Elevate coffee: stock for you and a whole room</li>
+          <li><strong>50 Super Saver vouchers</strong> to get coffee into a lot of hands<span class="ss">A Super Saver is like a coupon. Give one to a customer and they get a discount on their coffee.</span></li>
+          <li>Up to <strong>30% off</strong> every reorder</li>
+          <li>Starts you at a leadership rank, for builders who want to lead a team</li>
+        </ul>
+        <a class="btn btn-ghost signup" href="#" style="border-color:var(--brass-2)">Claim Founder Status</a>
+      </div>
+    </div>
+    <p class="note center" style="text-align:center">Every package also includes business tools and training inside your account. Full details are on the signup page.</p>
+  </div>
+</section>
+
+<!-- ================= WALKTHROUGH ================= -->
+<section id="walkthrough">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow mono">Before You Walk In</span>
+      <h2>Quick walkthrough: <em>opening your account.</em></h2>
+      <p class="lead center">About two minutes. Watch this first so you know exactly what to click on the signup page.</p>
+    </div>
+
+    <div class="vid reveal" id="walkVid">
+      <div class="ph"><div><div class="play">▶</div><b style="color:var(--foam)">Signup walkthrough</b><br><span style="font-size:.9rem">Video coming soon. The steps are below.</span></div></div>
+    </div>
+
+    <div class="steps reveal">
+      <div><b>STEP 1</b>Tap the button below to open the signup page</div>
+      <div><b>STEP 2</b>Create your login and fill in your details</div>
+      <div><b>STEP 3</b>Choose the package from the path you picked</div>
+      <div><b>STEP 4</b>Screenshot your confirmation and send it to us</div>
+    </div>
+
+    <div class="door reveal">
+      <a class="btn btn-ember signup" href="#">Open My Account →</a>
+      <p>Your signup link: <code id="linkText"></code></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHO'S BEHIND THE CUP ================= -->
+<section id="behind">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow mono">Who's Behind the Cup</span>
+      <h2>Why the signup page says <em>Risen Live.</em></h2>
+      <p class="lead">The Daily Roast is one of the rooms inside the Mansion of Success. Risen Live is our partner platform. They hold the relationship with the coffee manufacturer and run the accounts, shipping, and payouts. So when you sign up, you'll see their name. That's the right place.</p>
+    </div>
+
+    <div class="stackmap reveal">
+      <div class="hl"><span class="mono">The Room</span><b>The Daily Roast</b><p>The coffee, the ritual, and the people you connect with every morning. It's one room in the Mansion of Success.</p></div>
+      <div><span class="mono">The Environment</span><b>Mansion of Success · R3UP</b><p>The community behind it: rooms, mentors, and connections. Building Better Rooms.</p></div>
+      <div><span class="mono">The Platform</span><b>Risen Live</b><p>Partner company that works with the manufacturer and powers your account, orders, and commissions.</p></div>
+    </div>
+
+    <div class="reels reveal">
+      <div class="reel">
+        <div class="shell v"><iframe src="https://www.youtube.com/embed/bl2lTZ2_XL8" title="Hatim — Risen Live" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+        <div class="cap"><b>Hatim, Founder of Risen Live.</b> Built from Dubai, with roots on the ground in Egypt.</div>
+      </div>
+      <div class="reel">
+        <div class="shell h"><iframe src="https://www.youtube.com/embed/YPiVY63N1NQ" title="Sips — The Coffee Side" allowfullscreen loading="lazy"></iframe></div>
+        <div class="cap"><b>Sips: the coffee side.</b> What's in the cup and why people reorder it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL ================= -->
+<section class="final">
+  <div class="wrap reveal">
+    <span class="eyebrow mono">You're drinking it anyway</span>
+    <h2>It's easy. It's simple. <em>It's coffee.</em></h2>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-ember" href="#paths">Pick My Path</a>
+      <a class="btn btn-ghost" href="index.html#claim">Just Want the Coffee? $60</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">The Daily Roast · A room in the Mansion of Success · R3UP · Platform partner: Risen Live</div>
+    <p><strong>Earnings disclaimer:</strong> Income examples on this page are illustrations, not a guarantee or prediction of earnings. Results vary with individual effort, skill, and market conditions, and many participants earn little or no income. Commissions are paid only under the company's official compensation plan and qualification requirements, including staying active. Please review the company's income disclosure before enrolling.</p>
+    <p><strong>Product statements</strong> have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var S = window.SIP || {};
+
+  // Signup links
+  document.querySelectorAll('.signup').forEach(function(a){ a.href = S.signupUrl; a.target = '_blank'; a.rel = 'noopener'; });
+  document.getElementById('linkText').textContent = S.signupUrl;
+
+  // Walkthrough video
+  if (S.walkthroughVideo) {
+    document.getElementById('walkVid').innerHTML = '<iframe src="' + S.walkthroughVideo + '" title="Signup walkthrough" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+  }
+
+  // Ladder: people icons + math from comp-plan numbers
+  document.querySelectorAll('#ladder .rung').forEach(function(r){
+    var n = +r.dataset.people, d = S.standardDirect, f = S.fastStart;
+    var ppl = r.querySelector('.people'); for (var i = 0; i < n; i++) ppl.appendChild(document.createElement('i'));
+    var bonuses = Math.floor(n / 3), total = n * d + bonuses * f;
+    r.querySelector('.math').innerHTML =
+      '<div><span>' + n + ' × $' + d + ' direct</span><span>$' + (n * d) + '</span></div>' +
+      '<div><span>' + bonuses + ' × $' + f + ' Fast Start</span><span>$' + (bonuses * f) + '</span></div>' +
+      '<div class="tot"><span>That month</span><span>$' + total + (n >= 9 ? ' + reorders' : '') + '</span></div>';
+  });
+
+  // Reveals
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
