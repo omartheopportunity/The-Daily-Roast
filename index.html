@@ -15,7 +15,7 @@
    ========================================================= */
 window.ROAST = {
   checkoutUrl:  "https://customer.risen.live/auth/signup/foster123",   // where "Claim My Roast" sends people after email (store / checkout link)
-  formEndpoint: "",    // optional: Zapier / Formspree / GHL webhook that receives {email, path}
+  formEndpoint: "",    // Zapier "Catch Hook" URL (same one as start.html) — saves the email to GoHighLevel BEFORE checkout
   paidUrl:      "paid-to-sip.html",   // "Paid to Sip" CTA — booking link, Skool room, or enrollment page
   videoUrl:     "",    // YouTube/Vimeo/Loom EMBED url for the expense → asset video (leave blank to show the graphic)
   dmUrl:        "https://instagram.com/thedailyr0ast_" // "DM us" fallback
@@ -577,8 +577,8 @@ footer .brand{color:var(--steam);font-size:.85rem}
     var email = this.email.value;
     var go = function(){ if (R.checkoutUrl && R.checkoutUrl !== '#') window.location.href = R.checkoutUrl; };
     if (R.formEndpoint) {
-      fetch(R.formEndpoint, {method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({email: email, path: 'sip', source: location.search})})
+      fetch(R.formEndpoint, {method:'POST', mode:'no-cors', keepalive:true,
+        body: new URLSearchParams({email: email, offer: '$60 Roast checkout', tag: 'Daily Roast - Checkout', source: location.search})})
         .catch(function(){}).finally(go);
     } else { go(); }
   });

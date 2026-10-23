@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Daily Roast — Your First Cup's On Us</title>
+<meta name="description" content="Get a Super Saver discount code for The Daily Roast and a free tour of a room inside the Mansion of Success.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<script>
+/* =========================================================
+   EDIT THESE
+   ========================================================= */
+window.START = {
+  formEndpoint: "",   // Zapier "Catch Hook" URL — sends {first_name, email, phone, room, source} to GoHighLevel
+  superSaverCode: "", // optional: if you have ONE shareable code, put it here and it shows on screen instantly.
+                      // Leave blank if codes are sent individually by email.
+  shopUrl: "index.html#claim",
+  roomBase: "https://r3-up-website.vercel.app/"
+};
+</script>
+
+<style>
+:root{
+  --espresso:#17100b; --roast:#22180f; --bean:#2e2117; --line:#3d2d20;
+  --cream:#f4ead9; --foam:#fbf6ee; --steam:#a8977f; --brass:#c99a58; --brass-2:#e2bd82;
+  --ember:#e0713a; --ember-2:#f59a62; --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--espresso);color:var(--cream);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+em{font-style:italic;color:var(--brass-2)}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.06;letter-spacing:-.01em}
+nav{border-bottom:1px solid rgba(61,45,32,.6)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:Fraunces,serif;font-weight:800;letter-spacing:.18em;font-size:.95rem;text-decoration:none}
+.logo span{color:var(--brass)}
+
+.hero{position:relative;overflow:hidden;padding:56px 0 80px}
+.hero:before{content:"";position:absolute;left:50%;top:-200px;transform:translateX(-50%);width:1000px;max-width:150vw;height:640px;background:radial-gradient(closest-side,rgba(201,154,88,.18),transparent 70%);pointer-events:none}
+.grid{position:relative;display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:start}
+@media(max-width:900px){.grid{grid-template-columns:1fr;gap:36px}}
+.eyebrow{color:var(--brass);display:inline-flex;gap:10px;align-items:center}
+.eyebrow:before{content:"";width:28px;height:1px;background:currentColor}
+.pitch h1{font-size:clamp(2.5rem,6vw,4.2rem);margin:16px 0 18px}
+.pitch p.lead{font-size:1.12rem;color:#d9cbb6;max-width:520px}
+.gets{display:grid;gap:14px;margin:30px 0}
+.get{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border-radius:var(--radius);background:var(--bean);border:1px solid var(--line)}
+.get .ic{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;background:rgba(201,154,88,.14)}
+.get b{display:block;color:var(--foam);font-size:1.05rem}
+.get span{color:#bfae96;font-size:.93rem}
+.trust{display:flex;flex-wrap:wrap;gap:10px}
+.trust span{padding:7px 13px;border:1px solid var(--line);border-radius:999px;font-size:.85rem;color:var(--steam)}
+
+.formcard{background:var(--cream);color:var(--espresso);border-radius:24px;padding:30px;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
+.formcard h2{font-size:1.75rem;margin:6px 0 4px}
+.formcard .sub{color:#6f5c45;font-size:.93rem;margin-bottom:18px}
+label.f{display:block;font-weight:600;font-size:.85rem;margin:14px 0 6px}
+label.f small{font-weight:400;color:#8a7760}
+input[type=text],input[type=email],input[type=tel]{width:100%;padding:14px 16px;border-radius:12px;border:1px solid #d3bf9d;background:#fff;font:inherit;color:var(--espresso)}
+input:focus{outline:2px solid var(--brass);outline-offset:1px}
+.rooms{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.rooms{grid-template-columns:1fr}}
+.room{position:relative}
+.room input{position:absolute;opacity:0;pointer-events:none}
+.room label{display:block;padding:12px 14px;border-radius:12px;border:1.5px solid #dccab0;background:#fbf6ee;cursor:pointer;transition:border-color .15s,background .15s;height:100%}
+.room label b{display:block;font-size:.95rem}
+.room label span{font-size:.8rem;color:#7d6a52}
+.room label i{font-style:normal;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--ember);padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:2px}
+.room input:checked + label{border-color:var(--ember);background:#fff3ea;box-shadow:0 0 0 1px var(--ember) inset}
+.room input:focus-visible + label{outline:2px solid var(--brass)}
+.submit{width:100%;margin-top:20px;padding:17px;border:0;border-radius:999px;background:var(--ember);color:#fff;font:600 1.05rem Inter,sans-serif;cursor:pointer;box-shadow:0 12px 30px -12px rgba(224,113,58,.7)}
+.submit:hover{background:var(--ember-2)}
+.submit[disabled]{opacity:.6;cursor:wait}
+.fine{font-size:.78rem;color:#8a7760;margin-top:12px;text-align:center}
+.err{color:#b4381a;font-size:.85rem;margin-top:10px;display:none}
+
+.done{display:none;text-align:center}
+.done .check{width:64px;height:64px;border-radius:50%;background:var(--ember);color:#fff;display:grid;place-items:center;font-size:1.8rem;margin:4px auto 14px}
+.done h2{margin-bottom:8px}
+.code{margin:18px 0;padding:16px;border:2px dashed var(--brass);border-radius:14px;font-family:"JetBrains Mono",monospace;font-size:1.4rem;letter-spacing:.12em;display:none}
+.done .next{display:grid;gap:10px;margin-top:20px}
+.done .btn{display:block;padding:15px;border-radius:999px;text-decoration:none;font-weight:600}
+.btn-dark{background:var(--espresso);color:var(--foam)}
+.btn-line{border:1.5px solid #cdb895;color:var(--espresso)}
+
+footer{border-top:1px solid var(--line);padding:30px 0 50px;color:#8b7864;font-size:.78rem}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap"><a class="logo" href="index.html">THE DAILY <span>ROAST</span></a><span class="mono" style="color:var(--steam)">A room in the Mansion of Success</span></div></nav>
+
+<section class="hero">
+  <div class="wrap grid">
+    <div class="pitch">
+      <span class="eyebrow mono">No card · No call · Just your email</span>
+      <h1>Your first bag, <em>discounted.</em> Your first room, <em>free.</em></h1>
+      <p class="lead">Try The Daily Roast at a discount, then sit in on one of our rooms for free. See the coffee and the people before you spend a dime.</p>
+
+      <div class="gets">
+        <div class="get"><span class="ic">🎟️</span><div><b>A Super Saver code</b><span>Like a coupon: a discount on your first Daily Roast order, organic NAD+ coffee in Black or Latte.</span></div></div>
+        <div class="get"><span class="ic">🚪</span><div><b>A free tour of the room you pick</b><span>Get the link to sit in on a live session in the Mansion of Success. Just show up and listen.</span></div></div>
+        <div class="get"><span class="ic">☕</span><div><b>The Morning Ritual guide</b><span>Make the first ten minutes of your day work for you.</span></div></div>
+      </div>
+
+      <div class="trust"><span>Free</span><span>Unsubscribe anytime</span><span>We never sell your info</span></div>
+    </div>
+
+    <div class="formcard" id="card">
+      <form id="optin" novalidate>
+        <span class="mono" style="color:#8a6a40">Claim your Super Saver</span>
+        <h2>Where should we send it?</h2>
+        <p class="sub">Your code and room link arrive in your inbox in a few minutes.</p>
+
+        <label class="f" for="fn">First name</label>
+        <input type="text" id="fn" name="first_name" autocomplete="given-name" required>
+
+        <label class="f" for="em">Email</label>
+        <input type="email" id="em" name="email" autocomplete="email" required>
+
+        <label class="f" for="ph">Phone <small>(optional, for a text reminder before your room)</small></label>
+        <input type="tel" id="ph" name="phone" autocomplete="tel">
+
+        <label class="f">Which room do you want to tour?</label>
+        <div class="rooms" id="rooms"></div>
+
+        <button class="submit" type="submit" id="go">Send My Code + Room Link</button>
+        <p class="err" id="err">Add your first name and a valid email so we know where to send it.</p>
+        <p class="fine">By signing up you agree to get emails (and texts, if you add a phone number) from The Daily Roast / Building Better Rooms. Reply STOP or unsubscribe anytime.</p>
+      </form>
+
+      <div class="done" id="done">
+        <div class="check">✓</div>
+        <h2>You're in, <span id="nm"></span>.</h2>
+        <p style="color:#6f5c45">Check your inbox for your Super Saver code and your link to <b id="rm"></b>. If you don't see it, look in Promotions.</p>
+        <div class="code" id="code"></div>
+        <div class="next">
+          <a class="btn btn-dark" id="shop" href="#">Use My Code: Shop The Daily Roast</a>
+          <a class="btn btn-line" id="preview" href="#" target="_blank" rel="noopener">Preview the room I picked</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">The Daily Roast · A room in the Mansion of Success · Building Better Rooms · R3UP · Platform partner: Risen Live</div></footer>
+
+<script>
+(function(){
+  var C = window.START || {};
+  var ROOMS = [
+    {id:"Sips & Pips",           when:"Mon–Fri · 9 AM ET",   page:"sips-pips.html", tag:"Coffee pick", checked:true},
+    {id:"Inner Club",            when:"Sundays · 11 AM ET",  page:"inner-club.html"},
+    {id:"Whiteboard Wednesday",  when:"Wednesdays · 3 PM ET",page:"whiteboard-wednesday.html"},
+    {id:"Master Class",          when:"Mon & Thu · 3 PM ET", page:"master-class.html"},
+    {id:"Nailed & Inspired",     when:"Tuesdays · 12 PM ET", page:"ladys-leadershift.html"},
+    {id:"GPS Men's Community",   when:"Thursdays · 1 PM ET", page:"boys2billionz.html"},
+    {id:"Front Yard",            when:"Thursdays · 12 PM ET",page:"front-yard.html"}
+  ];
+  var box = document.getElementById('rooms');
+  ROOMS.forEach(function(r, i){
+    var d = document.createElement('div'); d.className = 'room';
+    d.innerHTML = '<input type="radio" name="room" id="r'+i+'" value="'+r.id+'"'+(r.checked?' checked':'')+'>' +
+      '<label for="r'+i+'"><b>'+r.id+(r.tag?'<i>'+r.tag+'</i>':'')+'</b><span>'+r.when+'</span></label>';
+    box.appendChild(d);
+  });
+
+  var f = document.getElementById('optin');
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var fn = f.first_name.value.trim(), em = f.email.value.trim(), ph = f.phone.value.trim();
+    var room = (f.querySelector('input[name=room]:checked') || {}).value || 'Sips & Pips';
+    if (!fn || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { document.getElementById('err').style.display = 'block'; return; }
+    document.getElementById('err').style.display = 'none';
+    var btn = document.getElementById('go'); btn.disabled = true; btn.textContent = 'Sending…';
+
+    var params = new URLSearchParams(location.search);
+    var body = new URLSearchParams({
+      first_name: fn, email: em, phone: ph, room: room,
+      offer: 'Super Saver + Room Tour', tag: 'Daily Roast - Sample/Tour',
+      utm_source: params.get('utm_source') || '', utm_medium: params.get('utm_medium') || '', utm_content: params.get('utm_content') || ''
+    });
+
+    var finish = function(){
+      var r = ROOMS.filter(function(x){ return x.id === room; })[0] || ROOMS[0];
+      document.getElementById('nm').textContent = fn;
+      document.getElementById('rm').textContent = room;
+      document.getElementById('preview').href = C.roomBase + r.page;
+      document.getElementById('shop').href = C.shopUrl;
+      if (C.superSaverCode) { var c = document.getElementById('code'); c.textContent = C.superSaverCode; c.style.display = 'block'; }
+      f.style.display = 'none'; document.getElementById('done').style.display = 'block';
+      document.getElementById('card').scrollIntoView({behavior:'smooth', block:'start'});
+    };
+
+    if (C.formEndpoint) {
+      fetch(C.formEndpoint, {method:'POST', mode:'no-cors', keepalive:true, body: body})
+        .catch(function(){}).finally(finish);
+    } else { finish(); }
+  });
+})();
+</script>
+</body>
+</html>
