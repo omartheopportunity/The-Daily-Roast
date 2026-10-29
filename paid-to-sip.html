@@ -17,8 +17,9 @@ window.SIP = {
   signupUrl: "https://portal.risen.live/auth/signup/foster123/0",  // your affiliate / enrollment link
   walkthroughVideo: "",   // YouTube EMBED url of your signup walkthrough, e.g. https://www.youtube.com/embed/XXXXXXXX
   // Comp-plan numbers used in the "$100–$500" illustration (from the RISEN comp plan)
-  standardDirect: 25,     // one-time direct commission per Standard ($250) enrollment
-  fastStart: 60           // Fast Start bonus for every 3 personal enrollments in a month
+  boxBV: 30,              // one $60 monthly box = 30 BV (1 BV = $1 per Hatim's training example)
+  levelPct: 0.07,         // level-1 commission on every customer reorder
+  binaryPct: 0.07         // binary starts at 7% (rank-based 7-13%), applied to the weaker leg
 };
 </script>
 
@@ -206,7 +207,7 @@ footer .brand{color:var(--steam);font-size:.85rem}
     <div class="sec-head reveal">
       <span class="eyebrow mono">The Standard Plan</span>
       <h2>What it takes to make <em>$100–$500 a month.</em></h2>
-      <p class="lead">No inventory and no cold pitching. Keep drinking your coffee, ask three questions, and help a few people get started each month.</p>
+      <p class="lead">No inventory and no cold pitching. Keep drinking your coffee, ask three questions, and build a base of customers who reorder every month. That reorder is what makes the income recurring.</p>
     </div>
 
     <div class="flip reveal">
@@ -219,40 +220,41 @@ footer .brand{color:var(--steam);font-size:.85rem}
       <div class="side ast">
         <span class="mono" style="color:var(--ember-2)">With the plan</span>
         <b>Coffee is an asset.</b>
-        <p>Same cup. You share it, people start on their own accounts, and the money that comes back covers your coffee and then some.</p>
+        <p>Same cup. You share it, customers start on their own accounts, and every time they reorder, you get paid again. Month after month.</p>
       </div>
     </div>
 
     <div class="ladder reveal" id="ladder">
-      <div class="rung" data-people="3">
+      <div class="rung" data-cust="32">
         <span class="mono" style="color:var(--steam)">Step 01 · Cover your cup</span>
-        <div class="goal">$100<small>+ /mo</small></div>
-        <h3>3 people start in a month</h3>
+        <div class="goal">$100<small>/mo, recurring</small></div>
+        <h3>About 32 customers reordering</h3>
         <div class="people"></div>
         <div class="math"></div>
       </div>
-      <div class="rung" data-people="6">
+      <div class="rung" data-cust="80">
         <span class="mono" style="color:var(--steam)">Step 02 · Cover a bill</span>
-        <div class="goal">$250<small>+ /mo</small></div>
-        <h3>6 people start in a month</h3>
+        <div class="goal">$250<small>/mo, recurring</small></div>
+        <h3>About 80 customers reordering</h3>
         <div class="people"></div>
         <div class="math"></div>
       </div>
-      <div class="rung" data-people="9">
+      <div class="rung" data-cust="160">
         <span class="mono" style="color:var(--ember-2)">Step 03 · Real side income</span>
-        <div class="goal">$400–500<small>+ /mo</small></div>
-        <h3>9 people start, plus team reorders</h3>
+        <div class="goal">$500<small>/mo, recurring</small></div>
+        <h3>About 160 customers reordering</h3>
         <div class="people"></div>
         <div class="math"></div>
       </div>
     </div>
+    <p class="note" style="margin-top:14px">Each icon stands for about 8 customers. They can be your direct customers or customers on your team. Their monthly box volume counts.</p>
 
     <div class="plus reveal">
-      <div><b>Stay active</b>Keep your own monthly coffee order going. You're drinking it anyway, and it keeps you qualified to get paid.</div>
-      <div><b>Reorders stack on top</b>When your customers and team reorder, level and team commissions add to the numbers above.</div>
+      <div><b>Stay active</b>Keep your own monthly coffee order going (60 PBV). You're drinking it anyway, and it keeps you qualified to get paid.</div>
+      <div><b>Paid on the spot, too</b>Every new customer who starts also pays you a one-time direct commission, on top of the recurring reorders.</div>
       <div><b>Same 3 questions</b>"Know anyone who drinks coffee? How do they like it? Ever gotten a check for drinking it?"</div>
     </div>
-    <p class="note">Illustration uses Standard ($250) enrollments only: one-time direct commission per enrollment plus the Fast Start bonus for every 3 in a month. It is an example, not a promise. Your results depend on your effort, and commissions are paid only under the official compensation plan.</p>
+    <p class="note">Illustration math: each $60 box is 30 BV (about $1 per BV). You earn 7% on direct-customer reorders (about $2.10 a month each) plus the binary, which starts at 7% of the weaker-leg volume, assuming volume is balanced across both legs and you are active. That is roughly $3 per reordering customer per month. It is an example, not a promise or a typical result. Results depend on your effort, how many customers keep reordering, and your rank, and commissions are paid only under the official compensation plan.</p>
   </div>
 </section>
 
@@ -284,7 +286,7 @@ footer .brand{color:var(--steam);font-size:.85rem}
         <p class="who">"I'm willing to give it a real try for extra side income."</p>
         <div class="rec"><div><span>Recommended</span><div class="pkg">Premium Package</div></div><b>$600</b></div>
         <ul>
-          <li><strong>8 boxes</strong> of Elevate coffee: enough to sip daily and let people taste it</li>
+          <li><strong>8 boxes</strong> of Elevate coffee: enough to sip daily and let customers taste it</li>
           <li><strong>15 Super Saver vouchers</strong> to hand out to the coffee drinkers you know<span class="ss">A Super Saver is like a coupon. Give one to a customer and they get a discount on their coffee.</span></li>
           <li>Up to <strong>30% off</strong> every reorder</li>
           <li><strong>1 month of Sips &amp; Pips</strong>: live morning sessions over coffee</li>
@@ -358,7 +360,7 @@ footer .brand{color:var(--steam);font-size:.85rem}
       </div>
       <div class="reel">
         <div class="shell h"><iframe src="https://www.youtube.com/embed/YPiVY63N1NQ" title="Sips — The Coffee Side" allowfullscreen loading="lazy"></iframe></div>
-        <div class="cap"><b>Sips: the coffee side.</b> What's in the cup and why people reorder it.</div>
+        <div class="cap"><b>Sips: the coffee side.</b> What's in the cup and why customers reorder it.</div>
       </div>
     </div>
   </div>
@@ -397,15 +399,16 @@ footer .brand{color:var(--steam);font-size:.85rem}
     document.getElementById('walkVid').innerHTML = '<iframe src="' + S.walkthroughVideo + '" title="Signup walkthrough" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
   }
 
-  // Ladder: people icons + math from comp-plan numbers
+  // Ladder: recurring income from customer reorders (7% level 1 + 7% binary on weaker leg, balanced legs)
   document.querySelectorAll('#ladder .rung').forEach(function(r){
-    var n = +r.dataset.people, d = S.standardDirect, f = S.fastStart;
-    var ppl = r.querySelector('.people'); for (var i = 0; i < n; i++) ppl.appendChild(document.createElement('i'));
-    var bonuses = Math.floor(n / 3), total = n * d + bonuses * f;
+    var n = +r.dataset.cust, bv = S.boxBV;
+    var ppl = r.querySelector('.people'); for (var i = 0; i < Math.round(n / 8); i++) ppl.appendChild(document.createElement('i'));
+    var lvl = n * bv * S.levelPct, bin = (n * bv / 2) * S.binaryPct, tot = Math.round(lvl + bin);
     r.querySelector('.math').innerHTML =
-      '<div><span>' + n + ' × $' + d + ' direct</span><span>$' + (n * d) + '</span></div>' +
-      '<div><span>' + bonuses + ' × $' + f + ' Fast Start</span><span>$' + (bonuses * f) + '</span></div>' +
-      '<div class="tot"><span>That month</span><span>$' + total + (n >= 9 ? ' + reorders' : '') + '</span></div>';
+      '<div><span>' + n + ' customers × $60 box (' + bv + ' BV)</span><span>' + (n * bv).toLocaleString() + ' BV</span></div>' +
+      '<div><span>7% level-1 on reorders</span><span>$' + Math.round(lvl) + '</span></div>' +
+      '<div><span>7% binary, weaker leg</span><span>$' + Math.round(bin) + '</span></div>' +
+      '<div class="tot"><span>Every month they reorder</span><span>~$' + tot + '</span></div>';
   });
 
   // Reveals

@@ -18,7 +18,10 @@ window.ROAST = {
   formEndpoint: "",    // Zapier "Catch Hook" URL (same one as start.html) — saves the email to GoHighLevel BEFORE checkout
   paidUrl:      "paid-to-sip.html",   // "Paid to Sip" CTA — booking link, Skool room, or enrollment page
   videoUrl:     "",    // YouTube/Vimeo/Loom EMBED url for the expense → asset video (leave blank to show the graphic)
-  dmUrl:        "https://instagram.com/thedailyr0ast_" // "DM us" fallback
+  dmUrl:        "https://instagram.com/thedailyr0ast_", // "DM us" fallback
+  // Hormozi offer pieces — CONFIRM before going live (you have to be able to honor these)
+  guarantee: "Drink it for 30 days. If your mornings aren't better, message us and we'll make it right with a flavor swap or credit toward your next bag.",
+  urgency:   "Founding-member price: a month of coffee for $60, plus the free room seat while this first batch lasts." 
 };
 </script>
 
@@ -134,6 +137,22 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .ticket input{padding:15px 18px;border-radius:12px;border:1px solid #d3bf9d;background:#fff;font:inherit}
 .ticket .btn{width:100%}
 .fine{font-size:.8rem;color:#7d6a52;margin-top:10px;text-align:center}
+.stack li b{display:block;font-weight:600;color:var(--espresso)}
+.stack li small{display:block;font-size:.78rem;color:#8a7760;font-style:italic;line-height:1.35;margin-top:2px}
+.month{font-weight:600;text-align:center;margin:6px 0 10px;color:var(--espresso)}
+.cmath{display:grid;gap:6px;margin-bottom:6px;font-size:.85rem}
+.cmath div{display:flex;justify-content:space-between;gap:10px;padding:9px 12px;border-radius:10px;background:#efe2c9;color:#5b4a36}
+.cmath div b{white-space:nowrap}
+.cmath .us{background:var(--espresso);color:var(--foam)}
+.guar{margin-top:16px;padding:14px 16px;border-radius:12px;background:#efe2c9;border:1px solid #d6c4a6;font-size:.85rem;color:#5b4a36}
+.guar b{display:block;color:var(--espresso);margin-bottom:2px}
+.veq{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:-12px 0 44px}
+.veq div{padding:20px;border-radius:14px;background:var(--bean);border:1px solid var(--line)}
+.veq .mono{color:var(--brass)}
+.veq b{display:block;font-family:Fraunces,serif;font-size:1.15rem;margin:6px 0 4px;color:var(--foam)}
+.veq p{font-size:.88rem;color:#bfae96}
+@media(max-width:900px){.veq{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.veq{grid-template-columns:1fr}}
 
 /* ---------- PATH 2: PAID ---------- */
 #paid{background:var(--roast);border-top:1px solid var(--line)}
@@ -242,8 +261,8 @@ footer .brand{color:var(--steam);font-size:.85rem}
 <header class="hero">
   <div class="wrap">
     <span class="eyebrow mono">A Cup of Freedom · Building Better Rooms</span>
-    <h1>You're already buying the coffee. <em>Which side of the cup</em> are you on?</h1>
-    <p class="lead">Every morning, billions of people pay for the same ritual. Most of them are only ever on the spending side. Pick your path — enjoy the cup, or get paid when the people you know enjoy it too.</p>
+    <h1>Better mornings. <em>A better room.</em> A coffee habit that pays you back.</h1>
+    <p class="lead">You already drink it every day. Switch to a cleaner cup, start your day with people who are going somewhere, and if you want, get paid when the people you know switch too. One bag starts all of it.</p>
 
     <div class="fork reveal">
       <svg class="lines" viewBox="0 0 900 150" aria-hidden="true">
@@ -289,8 +308,15 @@ footer .brand{color:var(--steam);font-size:.85rem}
   <div class="wrap">
     <div class="path-head reveal">
       <span class="tag sip">Path 01 · Sip</span>
-      <h2>Better coffee. <em>Better room.</em> Same morning.</h2>
-      <p class="lead">Our environment partnered with a new manufacturer to bring you an organic coffee with NAD+ — so the first ten minutes of your day work as hard as you do.</p>
+      <h2>The 30-Day <em>Better Mornings</em> Roast.</h2>
+      <p class="lead">For people who run on coffee and are tired of running on empty. Thirty days of a cleaner cup and a morning routine that sticks, plus a room of people who keep you showing up.</p>
+    </div>
+
+    <div class="veq reveal">
+      <div><span class="mono">What you get</span><b>Mornings you look forward to</b><p>Focus before the noise starts, not a 2 PM crash and a wasted day.</p></div>
+      <div><span class="mono">Why it works</span><b>You're not doing it alone</b><p>A guide plus a room of people building the same habit with you.</p></div>
+      <div><span class="mono">How fast</span><b>Starts with your first cup</b><p>Day one of the routine is the morning your bag arrives.</p></div>
+      <div><span class="mono">How hard</span><b>Brew. Sip. Show up.</b><p>No new diet, no 5 AM boot camp. Just swap the coffee you already drink.</p></div>
     </div>
 
     <div class="sip-grid">
@@ -323,22 +349,28 @@ footer .brand{color:var(--steam);font-size:.85rem}
 
       <div id="claim" class="ticket reveal">
         <span class="mono">Roast Ticket No. 001 — Fishers, IN</span>
-        <h3>Buy the bag. <em style="color:#9a6c3a">Get the room free.</em></h3>
+        <h3>The 30-Day Better Mornings Roast</h3>
         <div class="perf"></div>
         <ul class="stack">
-          <li><span>Small-batch NAD+ roast</span><span>$45</span></li>
-          <li><span>Lifetime entry — The Daily Roast Room</span><span>$197</span></li>
-          <li><span>Morning Ritual guide</span><span>$97</span></li>
-          <li><span>Tasting notes &amp; brew card</span><span>$27</span></li>
-          <li><span>First access to future room drops</span><span>$147</span></li>
-          <li><span>Bring-a-friend credit</span><span>$87</span></li>
+          <li><span><b>Organic NAD+ roast</b><small>"My coffee is just caffeine and a crash." Not anymore.</small></span><span>$45</span></li>
+          <li><span><b>The Morning Ritual guide</b><small>"I don't know how to make mornings stick." Here's the 10-minute routine.</small></span><span>$97</span></li>
+          <li><span><b>Lifetime seat in The Daily Roast Room</b><small>"I always fall off." You won't do it alone.</small></span><span>$197</span></li>
+          <li><span><b>Brew card &amp; tasting notes</b><small>"I'll brew it wrong." Perfect cup on day one.</small></span><span>$27</span></li>
+          <li><span><b>First access to room drops</b><small>"I'll miss what's next." You hear first.</small></span><span>$147</span></li>
+          <li><span><b>Bring-a-friend credit</b><small>"It's more fun with my people." Bring one in.</small></span><span>$87</span></li>
         </ul>
         <div class="total"><span class="was">Total value $600</span><span class="now">$60</span></div>
+        <p class="month">A month's worth of coffee for $60. One box covers about a month of mornings.</p>
+        <div class="cmath">
+          <div><span>Coffee shop: $5–7 a cup × 20 workdays</span><b>$100–140/mo</b></div>
+          <div class="us"><span>The Daily Roast: a month of mornings</span><b>$60/mo</b></div>
+        </div>
         <form id="claimForm">
           <input type="email" name="email" required placeholder="Your best email" aria-label="Email">
           <button class="btn btn-brass" type="submit">Claim My Roast + Free Room Access</button>
         </form>
-        <p class="fine">One bag. One login. No extra charge for the room — it's yours the moment you order.</p>
+        <div class="guar"><b>☕ The Better Mornings Guarantee</b><span id="guarText"></span></div>
+        <p class="fine" id="urgency"></p>
       </div>
     </div>
   </div>
@@ -541,7 +573,7 @@ footer .brand{color:var(--steam);font-size:.85rem}
     <span class="eyebrow mono">Two paths. One cup.</span>
     <h2>Every room starts with <em>a better morning.</em></h2>
     <div class="cta-row">
-      <a class="btn btn-brass" href="#claim">I'm Here to Sip — $60</a>
+      <a class="btn btn-brass" href="#claim">A Month of Coffee — $60</a>
       <a class="btn btn-ember" href="paid-to-sip.html">I Want to Get Paid to Sip</a>
     </div>
   </div>
@@ -560,6 +592,8 @@ footer .brand{color:var(--steam);font-size:.85rem}
 (function(){
   var R = window.ROAST || {};
 
+  document.getElementById('guarText').textContent = R.guarantee || '';
+  document.getElementById('urgency').textContent = R.urgency || '';
   // CTA links
   document.getElementById('paidBtn').href = R.paidUrl || '#';
   document.getElementById('dmBtn').href = R.dmUrl || '#';
