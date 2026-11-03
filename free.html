@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Better Coffee or Better Connections — Start Free | Building Better Rooms</title>
+<meta name="description" content="Two free ways in: meet 5–7 builders in 45 minutes at New Faces, New Places, or get The Daily Roast Super Saver discount. Pick one. It's free.">
+<meta property="og:title" content="Better coffee or better connections. Start free.">
+<meta property="og:description" content="Meet 5–7 builders in 45 minutes on Zoom, or get The Daily Roast Super Saver discount.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<script>
+/* =========================================================
+   EDIT THESE
+   Sign-ups post to the "Building Better Rooms" Google Form,
+   which already feeds GoHighLevel through Zapier (tag = "Room: <room>").
+   The "How'd you find us?" answer records which path they chose,
+   so you can count Coffee vs Connections in the form's responses.
+   ========================================================= */
+window.FREE = {
+  formAction: "https://docs.google.com/forms/d/e/1FAIpQLSeV89P5ZHfo3yJ4Qh977pISVltuJAnmXX9fobCGgIvwrFQibQ/formResponse",
+  fields: {
+    room: "entry.1753222212",
+    name: "entry.2092238618",
+    email: "entry.1556369182",
+    phone: "entry.479301265",
+    notes: "entry.588393791",
+    bestTime: "entry.2109138769",
+    source: "entry.1277826157"
+  },
+  rooms: { connections: "Front Yard", coffee: "Sips & Pips" },
+  sourceLabel: { connections: "Landing /free: Connections", coffee: "Landing /free: Coffee" },
+  eventTime: { day: 4, hour: 12, minutes: 45, label: "Thursdays · 12:00 PM EST" } // day 4 = Thursday
+};
+</script>
+
+<style>
+:root{
+  --espresso:#17100b; --roast:#22180f; --bean:#2e2117; --line:#3d2d20;
+  --cream:#f4ead9; --foam:#fbf6ee; --steam:#a8977f; --brass:#c99a58; --brass-2:#e2bd82;
+  --ember:#e0713a; --leaf:#7fa37a; --radius:18px; --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--espresso);color:var(--cream);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+em{font-style:italic;color:var(--brass-2)}
+.eyebrow{color:var(--brass);display:inline-flex;gap:10px;align-items:center}
+.eyebrow:before{content:"";width:28px;height:1px;background:currentColor}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.08;letter-spacing:-.01em}
+h1{font-size:clamp(2.5rem,6.4vw,4.8rem)}
+h2{font-size:clamp(2rem,4.4vw,3.1rem)}
+h3{font-size:1.35rem}
+p.lead{font-size:clamp(1.05rem,1.8vw,1.22rem);color:#d9cbb6;max-width:660px}
+.muted{color:var(--steam)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 26px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:1rem;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-brass{background:var(--brass);color:var(--espresso)}
+.btn-brass:hover{background:var(--brass-2)}
+.btn-ghost{background:transparent;color:var(--cream);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--brass)}
+.btn[disabled]{opacity:.6;cursor:wait;transform:none}
+
+nav{border-bottom:1px solid rgba(61,45,32,.6);position:sticky;top:0;background:rgba(23,16,11,.92);backdrop-filter:blur(8px);z-index:5}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:Fraunces,serif;font-weight:800;letter-spacing:.18em;font-size:.92rem;text-decoration:none}
+nav .links{display:flex;gap:22px}
+nav .links a{text-decoration:none;font-size:.9rem;color:#d9cbb6}
+nav .links a:hover{color:var(--brass-2)}
+@media(max-width:640px){nav .links{display:none}}
+
+section{padding:88px 0;border-bottom:1px solid rgba(61,45,32,.5)}
+.hero{padding:76px 0 84px}
+.hero h1{margin:18px 0 18px;max-width:900px}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:42px}
+@media(max-width:820px){.paths{grid-template-columns:1fr}}
+.path{display:block;text-decoration:none;background:linear-gradient(180deg,var(--roast),var(--espresso));border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:border-color .15s,transform .15s}
+.path:hover{border-color:var(--brass);transform:translateY(-3px)}
+.path .mono{color:var(--brass)}
+.path h3{font-size:1.7rem;margin:10px 0 8px}
+.path p{color:#d9cbb6}
+.path .go{margin-top:18px;color:var(--brass-2);font-weight:600}
+
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;grid-template-areas:'intro form' 'more form';column-gap:48px;align-items:start}
+.grid2>.intro{grid-area:intro}.grid2>.more{grid-area:more}.grid2>.formcard{grid-area:form}
+@media(max-width:900px){.grid2{grid-template-columns:1fr;grid-template-areas:'intro' 'form' 'more';row-gap:28px}}
+.steps{list-style:none;counter-reset:s;margin-top:28px;display:grid;gap:14px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:var(--roast);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.steps li:before{content:counter(s,decimal-leading-zero);font-family:"JetBrains Mono",monospace;color:var(--brass);font-size:.9rem;padding-top:2px}
+.steps b{display:block;font-weight:600}
+.steps span{color:#cdbfa9;font-size:.95rem}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:.88rem;color:#e6d9c4;background:rgba(46,33,23,.5)}
+
+.compare{width:100%;border-collapse:collapse;margin-top:34px;font-size:.98rem}
+.compare th,.compare td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.compare th{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steam);font-weight:500}
+.compare td:first-child{color:#bfae95}
+.compare td:last-child{color:var(--cream);font-weight:500}
+.compare tr td:last-child:before{content:"✓ ";color:var(--leaf)}
+
+.twoway{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+@media(max-width:820px){.twoway{grid-template-columns:1fr}}
+.card{background:var(--roast);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.card h3{margin:8px 0 8px}
+.card p{color:#d9cbb6}
+.card .mono{color:var(--brass)}
+
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+@media(max-width:820px){.quotes{grid-template-columns:1fr}}
+.quote{border-left:2px solid var(--brass);padding:6px 0 6px 16px;font-family:Fraunces,serif;font-style:italic;font-size:1.15rem;color:#ecdfc9}
+
+/* forms */
+.formcard{background:linear-gradient(180deg,#24190f,var(--espresso));border:1px solid var(--brass);border-radius:22px;padding:30px;position:sticky;top:84px}
+@media(max-width:900px){.formcard{position:static}}
+.formcard h3{font-size:1.6rem;margin:8px 0 6px}
+.formcard .sub{color:#cdbfa9;font-size:.95rem;margin-bottom:18px}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){form .row{grid-template-columns:1fr}}
+label{display:block;font-size:.82rem;color:var(--steam);margin:12px 0 6px}
+input,select{width:100%;background:var(--espresso);border:1px solid var(--line);color:var(--cream);border-radius:12px;padding:13px 14px;font:inherit;font-size:.98rem}
+input:focus,select:focus{outline:none;border-color:var(--brass)}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--steam) 50%),linear-gradient(135deg,var(--steam) 50%,transparent 50%);background-position:calc(100% - 20px) 55%,calc(100% - 14px) 55%;background-size:6px 6px;background-repeat:no-repeat}
+.toggle{display:flex;gap:8px;flex-wrap:wrap;position:relative}
+.toggle input{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;pointer-events:none}
+.toggle label{margin:0;border:1px solid var(--line);border-radius:999px;padding:9px 15px;color:#e6d9c4;cursor:pointer;font-size:.9rem}
+.toggle input:checked+label{border-color:var(--brass);background:rgba(201,154,88,.16);color:var(--foam)}
+.toggle input:focus-visible+label{outline:2px solid var(--brass-2)}
+form .btn{width:100%;margin-top:20px}
+.fine{font-size:.78rem;color:var(--steam);margin-top:12px;text-align:center}
+.err{color:#f2a07a;font-size:.86rem;margin-top:10px;min-height:1.2em}
+.done{display:none;text-align:left}
+.done.show{display:block}
+.done .tick{width:46px;height:46px;border-radius:50%;background:rgba(127,163,122,.18);border:1px solid var(--leaf);display:grid;place-items:center;color:var(--leaf);font-size:1.3rem;margin-bottom:14px}
+.done p{color:#d9cbb6;margin:8px 0}
+.done .actions{display:grid;gap:10px;margin-top:18px}
+
+.faq{margin-top:30px;display:grid;gap:12px;max-width:820px}
+details{background:var(--roast);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+summary{cursor:pointer;font-weight:600;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";float:right;color:var(--brass)}
+details[open] summary:after{content:"–"}
+details p{color:#cdbfa9;margin-top:10px}
+footer{padding:44px 0 60px;color:var(--steam);font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+</style>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">THE DAILY ROAST</a>
+    <div class="links">
+      <a href="#connections">Connections</a>
+      <a href="#coffee">Coffee</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="mono eyebrow">Two free ways in · Building Better Rooms</span>
+    <h1>Better coffee or better connections. <em>Start with one. It's free.</em></h1>
+    <p class="lead">For builders with zero entrepreneurial friends, and anyone tired of networking that feels fake. Pick what you came for, leave your info, and we'll send it over. No card, no catch.</p>
+    <div class="paths">
+      <a class="path" href="#connections" data-path="connections">
+        <span class="mono">Path 01 · Connections</span>
+        <h3>New Faces, New Places</h3>
+        <p>Meet 5–7 builders in 45 minutes on Zoom. Local or global, your call.</p>
+        <div class="go">Save my free seat →</div>
+      </a>
+      <a class="path" href="#coffee" data-path="coffee">
+        <span class="mono">Path 02 · Coffee</span>
+        <h3>The Daily Roast</h3>
+        <p>Organic coffee with NAD+, in Black or Latte, plus a free seat in our room.</p>
+        <div class="go">Send me the Super Saver discount →</div>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ CONNECTIONS ============ -->
+<section id="connections">
+  <div class="wrap grid2">
+    <div class="intro">
+      <span class="mono eyebrow">Path 01 · New Faces, New Places</span>
+      <h2>Replace the room you <em>outgrew.</em></h2>
+      <p class="lead" style="margin-top:16px">Losing old friends happens on its own. Replacing them takes intention. New Faces, New Places is a free, curated networking experience on Zoom: 5–7 real conversations in 45 minutes, with people who are building too.</p>
+      <div class="facts">
+        <span class="chip">Thursdays · 12:00 PM EST</span>
+        <span class="chip">45 minutes</span>
+        <span class="chip">On Zoom, from anywhere</span>
+        <span class="chip">Free</span>
+      </div>
+    </div>
+    <div class="more">
+      <h3 style="margin-top:44px">How the 45 minutes run</h3>
+      <ol class="steps">
+        <li><div><b>Save your seat</b><span>Two minutes on this page. Tell us where you're based and who you want to meet.</span></div></li>
+        <li><div><b>Join the Zoom on Thursday</b><span>A quick welcome so everyone knows how it works. Camera on, coffee in hand.</span></div></li>
+        <li><div><b>Breakout rooms: 5–7 conversations</b><span>You rotate through small breakout rooms. Each one is a real conversation, not a pitch line at a bar.</span></div></li>
+        <li><div><b>Leave with someone, not a stack of names</b><span>The goal is at least one aligned connection you'll actually follow up with.</span></div></li>
+      </ol>
+    </div>
+
+    <aside class="formcard" id="form-connections">
+      <div class="formbox">
+        <span class="mono" style="color:var(--brass)">Free seat · Thursdays 12 PM EST</span>
+        <h3>Save my seat</h3>
+        <p class="sub">We'll send your Zoom link and a reminder before Thursday.</p>
+        <form data-path="connections" novalidate>
+          <label for="c-name">Full name</label>
+          <input id="c-name" name="name" autocomplete="name" required>
+          <div class="row">
+            <div><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+            <div><label for="c-phone">Phone (for the reminder text)</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" required></div>
+          </div>
+          <label for="c-city">Where are you based?</label>
+          <input id="c-city" name="city" autocomplete="address-level2" placeholder="City, state or country">
+          <label>Who do you want to meet?</label>
+          <div class="toggle" role="radiogroup">
+            <input type="radio" id="c-m1" name="meet" value="Local" ><label for="c-m1">People near me</label>
+            <input type="radio" id="c-m2" name="meet" value="Global"><label for="c-m2">People beyond my city</label>
+            <input type="radio" id="c-m3" name="meet" value="Both" checked><label for="c-m3">Both</label>
+          </div>
+          <label for="c-time">Best time to reach you</label>
+          <select id="c-time" name="bestTime" required>
+            <option value="">Choose one</option>
+            <option value="Mornings 6AM - 9AM">Mornings, 6–9 AM</option>
+            <option value="Brunch 10:30AM - 12:45 PM ">Late morning, 10:30 AM–12:45 PM</option>
+            <option value="Midday  2PM - 4PM">Afternoon, 2–4 PM</option>
+            <option value="Evening 6PM - 9PM">Evening, 6–9 PM</option>
+          </select>
+          <button class="btn btn-brass" type="submit">Save my free seat</button>
+          <div class="err" aria-live="polite"></div>
+          <p class="fine">Free. No card. We only use your info to send your seat and reminders.</p>
+        </form>
+      </div>
+      <div class="done" aria-live="polite">
+        <div class="tick">✓</div>
+        <h3>You're in.</h3>
+        <p>Your seat is saved for <b class="next-date">Thursday at 12:00 PM EST</b>. Watch your email and texts for the Zoom link.</p>
+        <div class="actions">
+          <a class="btn btn-brass cal-link" target="_blank" rel="noopener">Add it to my Google Calendar</a>
+          <a class="btn btn-ghost" href="#coffee">While you're here: the coffee →</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="mono eyebrow">Why this works when mixers don't</span>
+    <h2>Networking isn't a waste of time. <em>Fake networking is.</em></h2>
+    <table class="compare">
+      <thead><tr><th>Traditional networking</th><th>New Faces, New Places</th></tr></thead>
+      <tbody>
+        <tr><td>Walk into a room of strangers and hope</td><td>Curated breakout rooms, 5–7 conversations</td></tr>
+        <tr><td>Small talk with whoever's near the bar</td><td>Real one-on-one time in every breakout</td></tr>
+        <tr><td>Leave with a stack of business cards</td><td>Leave with at least one aligned connection</td></tr>
+        <tr><td>Limited to whoever showed up in your city</td><td>Local and global, from wherever you are</td></tr>
+        <tr><td>Dress up, drive, park, buy a drink</td><td>45 minutes from your laptop, free</td></tr>
+      </tbody>
+    </table>
+
+    <div class="quotes">
+      <div class="quote">"I have zero entrepreneurial friends around me."</div>
+      <div class="quote">"Finding people to bounce off ideas is challenging."</div>
+      <div class="quote">"Replacing the friend group has been tough."</div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:.88rem">Real comments from builders online. If one of these sounds like you, this room is for you.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="mono eyebrow">Local and global</span>
+    <h2>Your city when you want it. <em>The world when you need it.</em></h2>
+    <p class="lead" style="margin-top:14px">Some people want a coffee partner across town. Others want connections their zip code will never give them. This room is built for both, so tell us which you're after when you save your seat.</p>
+    <div class="twoway">
+      <div class="card">
+        <span class="mono">Want people near you?</span>
+        <h3>Meet locals you can actually sit down with.</h3>
+        <p>Tell us where you're based and we'll put people from your area in your breakouts when we can, so the conversation can move offline.</p>
+      </div>
+      <div class="card">
+        <span class="mono">Want reach beyond your city?</span>
+        <h3>Meet builders you'd never run into at home.</h3>
+        <p>Because it's on Zoom, the room isn't limited to where you live. New markets, new perspectives, new doors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COFFEE ============ -->
+<section id="coffee">
+  <div class="wrap grid2">
+    <div class="intro">
+      <span class="mono eyebrow">Path 02 · The Daily Roast</span>
+      <h2>Better coffee. Better room. <em>Same morning.</em></h2>
+      <p class="lead" style="margin-top:16px">You're already buying the coffee. Our environment partnered with a new manufacturer on an organic coffee infused with NAD+, so the first ten minutes of your day work as hard as you do.</p>
+    </div>
+    <div class="more">
+      <ol class="steps">
+        <li><div><b>Black</b><span>Bold, clean, medium-dark. For the ones who take it straight.</span></div></li>
+        <li><div><b>Latte</b><span>Smooth and creamy. Coffee-shop comfort without the line.</span></div></li>
+        <li><div><b>The room comes with the cup</b><span>Every bag unlocks a free seat in The Daily Roast Room: builder conversations, introductions and first access to new room drops.</span></div></li>
+      </ol>
+      <p class="muted" style="margin-top:22px">Want to turn the cup into income instead? <a href="/paid-to-sip" style="color:var(--brass-2)">See how Paid to Sip works →</a></p>
+    </div>
+
+    <aside class="formcard" id="form-coffee">
+      <div class="formbox">
+        <span class="mono" style="color:var(--brass)">Super Saver discount</span>
+        <h3>Send me the discount</h3>
+        <p class="sub">We'll email your Super Saver discount and the coffee details.</p>
+        <form data-path="coffee" novalidate>
+          <label for="k-name">Full name</label>
+          <input id="k-name" name="name" autocomplete="name" required>
+          <div class="row">
+            <div><label for="k-email">Email</label><input id="k-email" name="email" type="email" autocomplete="email" required></div>
+            <div><label for="k-phone">Phone</label><input id="k-phone" name="phone" type="tel" autocomplete="tel" required></div>
+          </div>
+          <label>How do you take it?</label>
+          <div class="toggle" role="radiogroup">
+            <input type="radio" id="k-t1" name="taste" value="Black"><label for="k-t1">Black</label>
+            <input type="radio" id="k-t2" name="taste" value="Latte"><label for="k-t2">Latte</label>
+            <input type="radio" id="k-t3" name="taste" value="Not sure yet" checked><label for="k-t3">Not sure yet</label>
+          </div>
+          <label for="k-time">Best time to reach you</label>
+          <select id="k-time" name="bestTime" required>
+            <option value="">Choose one</option>
+            <option value="Mornings 6AM - 9AM">Mornings, 6–9 AM</option>
+            <option value="Brunch 10:30AM - 12:45 PM ">Late morning, 10:30 AM–12:45 PM</option>
+            <option value="Midday  2PM - 4PM">Afternoon, 2–4 PM</option>
+            <option value="Evening 6PM - 9PM">Evening, 6–9 PM</option>
+          </select>
+          <button class="btn btn-brass" type="submit">Send my Super Saver discount</button>
+          <div class="err" aria-live="polite"></div>
+          <p class="fine">Free. No card. We only use your info to send your discount and coffee updates.</p>
+        </form>
+      </div>
+      <div class="done" aria-live="polite">
+        <div class="tick">✓</div>
+        <h3>It's on the way.</h3>
+        <p>Check your inbox for your Super Saver discount. Your free seat in The Daily Roast Room comes with your first bag.</p>
+        <div class="actions">
+          <a class="btn btn-brass" href="/#claim">See the coffee</a>
+          <a class="btn btn-ghost" href="#connections">Also save a free networking seat →</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <span class="mono eyebrow">Questions</span>
+    <h2>Before you sign up</h2>
+    <div class="faq">
+      <details><summary>Is New Faces, New Places really free?</summary><p>Yes. No card, no catch. It's how we meet people before anyone commits to anything.</p></details>
+      <details><summary>When is it, and how long?</summary><p>Thursdays at 12:00 PM EST, for 45 minutes, on Zoom. Your link comes by email and text after you save your seat.</p></details>
+      <details><summary>Do I need my camera on?</summary><p>Yes, please. It's a conversation room, and faces are what make the connections stick.</p></details>
+      <details><summary>Can I meet people in my own city?</summary><p>That's what the "Who do you want to meet?" question is for. Pick "People near me" and tell us where you're based, and we'll put locals in your breakouts when we can.</p></details>
+      <details><summary>What is the Super Saver discount?</summary><p>A discount on your first order of The Daily Roast, sent to your email after you sign up.</p></details>
+      <details><summary>Who's behind this?</summary><p>Building Better Rooms, the environment behind The R3UP: a community for early entrepreneurs, creators and freelancers who are done building alone. <a href="https://r3-up-website.vercel.app/" style="color:var(--brass-2)">Walk the property →</a></p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>The Daily Roast · A Cup of Freedom · Building Better Rooms</span>
+    <span>Repetition. Reciprocity. Results.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var C = window.FREE;
+  var params = new URLSearchParams(location.search);
+  var utm = ["utm_source","utm_medium","utm_campaign"].map(function(k){ return params.get(k) ? k.replace("utm_","")+"="+params.get(k) : ""; }).filter(Boolean).join(", ");
+
+  // Next occurrence of the weekly event, in Eastern time
+  function nextEvent(){
+    var now = new Date();
+    var et = new Date(now.toLocaleString("en-US",{timeZone:"America/New_York"}));
+    var d = new Date(et); d.setHours(C.eventTime.hour,0,0,0);
+    var add = (C.eventTime.day - et.getDay() + 7) % 7;
+    if(add === 0 && et >= d) add = 7;
+    d.setDate(d.getDate()+add);
+    return d; // wall-clock Eastern date/time
+  }
+  function pad(n){ return String(n).padStart(2,"0"); }
+  function calUrl(d){
+    var y=d.getFullYear(), m=pad(d.getMonth()+1), day=pad(d.getDate());
+    var start = y+m+day+"T"+pad(C.eventTime.hour)+"0000";
+    var end = y+m+day+"T"+pad(C.eventTime.hour)+pad(C.eventTime.minutes)+"00";
+    var q = new URLSearchParams({
+      action:"TEMPLATE", text:"New Faces, New Places (Building Better Rooms)",
+      dates:start+"/"+end, ctz:"America/New_York",
+      details:"45 minutes, 5–7 breakout conversations on Zoom. Your Zoom link comes by email and text.",
+      location:"Zoom", recur:"RRULE:FREQ=WEEKLY;BYDAY=TH"
+    });
+    return "https://calendar.google.com/calendar/render?"+q.toString();
+  }
+
+  document.querySelectorAll("form[data-path]").forEach(function(form){
+    var path = form.getAttribute("data-path");
+    var card = form.closest(".formcard");
+    var err = form.querySelector(".err");
+    var btn = form.querySelector("button[type=submit]");
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      err.textContent = "";
+      var f = form.elements;
+      var name = f.name.value.trim(), email = f.email.value.trim(), phone = f.phone.value.trim(), time = f.bestTime.value;
+      if(!name){ err.textContent = "Add your name."; f.name.focus(); return; }
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){ err.textContent = "That email doesn't look right."; f.email.focus(); return; }
+      if(phone.replace(/\D/g,"").length < 10){ err.textContent = "Add a phone number with area code."; f.phone.focus(); return; }
+      if(!time){ err.textContent = "Pick the best time to reach you."; f.bestTime.focus(); return; }
+
+      var notes;
+      if(path === "connections"){
+        var meet = (form.querySelector("input[name=meet]:checked")||{}).value || "Both";
+        var city = f.city.value.trim();
+        notes = "New Faces, New Places seat. Wants to meet: " + meet + (city ? ". Based in: " + city : "");
+      } else {
+        var taste = (form.querySelector("input[name=taste]:checked")||{}).value || "Not sure yet";
+        notes = "Daily Roast Super Saver discount. Takes it: " + taste;
+      }
+      var source = C.sourceLabel[path] + (utm ? " (" + utm + ")" : "");
+
+      var body = new URLSearchParams();
+      body.append(C.fields.room, C.rooms[path]);
+      body.append(C.fields.name, name);
+      body.append(C.fields.email, email);
+      body.append(C.fields.phone, phone);
+      body.append(C.fields.notes, notes);
+      body.append(C.fields.bestTime, time);
+      body.append(C.fields.source, source);
+
+      btn.disabled = true; btn.textContent = "Sending…";
+      fetch(C.formAction, { method:"POST", mode:"no-cors", body: body })
+        .then(function(){
+          card.querySelector(".formbox").style.display = "none";
+          var done = card.querySelector(".done"); done.classList.add("show");
+          if(path === "connections"){
+            var d = nextEvent();
+            card.querySelector(".next-date").textContent = d.toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"}) + " at 12:00 PM EST";
+            card.querySelector(".cal-link").href = calUrl(d);
+          }
+          if(window.va){ try{ window.va("event",{name:"signup_"+path}); }catch(_){} }
+          card.scrollIntoView({behavior:"smooth", block:"start"});
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = path === "connections" ? "Save my free seat" : "Send my Super Saver discount";
+          err.textContent = "Something went wrong. Check your connection and try again.";
+        });
+    });
+  });
+})();
+</script>
+</body>
+</html>
